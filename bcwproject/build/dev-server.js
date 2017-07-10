@@ -11,6 +11,9 @@ var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
+const http = require('http')
+const url = require('url')
+const querystring = require('querystring')
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -80,6 +83,61 @@ devMiddleware.waitUntilValid(() => {
 })
 
 var server = app.listen(port)
+
+
+http.createServer(function(oreq, ores) {
+    if (oreq) {
+        if (oreq.url !== '/favicon.ico') {
+            let queryObj = url.parse(oreq.url, true).query;
+            let content = '',
+                data = {},
+                datas = "";
+            for (item in queryObj) {
+                if (item !== 'hostname') {
+                    if (item !== 'path') {
+                        data[item] = queryObj[item];
+                    }
+                }
+            }
+            content = querystring.stringify(data);
+
+            let options = {
+                hostname: queryObj.hostname,
+                port: '80',
+                path: queryObj.path + content,
+                method: 'GET'
+            };
+
+            let req = http.request(options, function(res) {
+                // console.log('STATUS: ' + res.statusCode);
+                // console.log('HEADERS: ' + JSON.stringify(res.headers));
+                res.setEncoding('utf8');
+
+                res.on('data', function(chunk) {
+                    // 返回数据
+                    datas += chunk;
+                });
+
+                res.on('end', function() {
+                    ores.writeHead(200, {
+                        "Content-Type": "application/json; charset = UTF-8",
+                        "Access-Control-Allow-Origin": "*"
+                    });
+                    ores.end(datas);
+                })
+
+            });
+                         
+            req.on('error', function(e) {
+                console.log('problem with request: ' + e.message);
+            });
+
+            req.end();
+
+        }
+    }
+}).listen(8080,"127.0.0.1");
+
 
 module.exports = {
   ready: readyPromise,

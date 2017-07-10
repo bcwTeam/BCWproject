@@ -29,9 +29,10 @@ export default {
 
 <style>
 *{
-  padding:0;
-  margin:0
+	padding:0;
+	margin:0
 }
+<<<<<<< HEAD
 .tab_bar{
   list-style: none;
   display: flex;
@@ -46,5 +47,22 @@ export default {
 .tab_bar>li{
   width:25%;
   text-align: center;
+=======
+ul{
+	list-style: none;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	line-height: .5rem;
+	background-color: #dfdfdf;
+	bottom:0;
+	left:0;
+	right:0;
+	font-size: .2rem;
+}
+ul li{
+	width:20%;
+	text-align: center;
+>>>>>>> 6faa081e129aa077d07fcfadd35a02ed8e90ea94
 }
 </style>
