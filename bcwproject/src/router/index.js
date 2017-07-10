@@ -51,12 +51,7 @@ export default new Router({
 		{
 			path: '/eat',
 			name: 'eat',
-		 	component: Eat,
-		 	// children:[
-		 	// 	{ path: '/', name: 'choose', component: Choose },
-		 	// 	{ path: '/', name: 'dalay', component: Dalay },
-		 	// 	{ path: '/', name: 'knowledge', component: Knowledge },
-		 	// ]
+		 	component: Eat
 		},
 		{
 			path: '/cart',

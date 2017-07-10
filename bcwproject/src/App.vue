@@ -29,22 +29,23 @@ export default {
 
 <style>
 *{
-  padding:0;
-  margin:0
+	padding:0;
+	margin:0
 }
 ul{
-  list-style: none;
-  display: flex;
-  align-items: center;
-  position: fixed;
-  line-height: 46px;
-  background-color: #dfdfdf;
-  bottom:0;
-  left:0;
-  right:0
+	list-style: none;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	line-height: .5rem;
+	background-color: #dfdfdf;
+	bottom:0;
+	left:0;
+	right:0;
+	font-size: .2rem;
 }
 ul li{
-  width:25%;
-  text-align: center;
+	width:20%;
+	text-align: center;
 }
 </style>
