@@ -23,6 +23,8 @@ import Choose from '../pages/eat/choose'
 import Dalay from '../pages/eat/dalay'
 import Knowledge from '../pages/eat/knowledge'
 
+import Detail from '../components/eat/detail'
+
 
 export default new Router({
 	routes: [
@@ -50,11 +52,11 @@ export default new Router({
 			path: '/eat',
 			name: 'eat',
 		 	component: Eat,
-		 	children:[
-		 		{ path: '/', name: 'choose', component: Choose },
-		 		{ path: '/', name: 'dalay', component: Dalay },
-		 		{ path: '/', name: 'knowledge', component: Knowledge },
-		 	]
+		 	// children:[
+		 	// 	{ path: '/', name: 'choose', component: Choose },
+		 	// 	{ path: '/', name: 'dalay', component: Dalay },
+		 	// 	{ path: '/', name: 'knowledge', component: Knowledge },
+		 	// ]
 		},
 		{
 			path: '/cart',
@@ -65,6 +67,11 @@ export default new Router({
 			path: '/mine',
 			name: 'mine',
 		 	component: Mine,
-		}
+		},
+		{
+	        path: '/detail',
+			name: 'Detail',
+		 	component: Detail,
+	    },
 	]
 })
