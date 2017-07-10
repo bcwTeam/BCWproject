@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<router-view></router-view>
-	    <ul>
+	    <ul class="tab_bar">
 	        <li>
 	          <router-link to="/">Home</router-link>
 	        </li>
@@ -32,7 +32,7 @@ export default {
   padding:0;
   margin:0
 }
-ul{
+.tab_bar{
   list-style: none;
   display: flex;
   align-items: center;
@@ -43,7 +43,7 @@ ul{
   left:0;
   right:0
 }
-ul li{
+.tab_bar>li{
   width:25%;
   text-align: center;
 }
