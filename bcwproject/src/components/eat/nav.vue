@@ -32,13 +32,13 @@
 				// this.$http.get('../../../static/eatPageData/head_nav.json').then(res => {
 				// 	this.list = res.data.result_data.list;
 				// })
-     // https://api3.vipbcw.com/site/saleList?v=2.0&pathinfo=https://m.vipbcw.com/home/index
+     // https://api3.vipbcw.com/eatit/index?pathinfo=https%3A%2F%2Fm.vipbcw.com%2Fsubstance%2Findex
 				this.$http.get({
 					url : 'http://127.0.0.1:9999',
 					params : {
 						hostname : 'api3.vipbcw.com',
 						path : '/eatit/index?',
-						pathinfo : 'https://m.vipbcw.com/substance/index'
+						pathinfo : 'https%3A%2F%2Fm.vipbcw.com%2Fsubstance%2Findex'
 					},
 					method : 'get',
 				}).then(res=>{
