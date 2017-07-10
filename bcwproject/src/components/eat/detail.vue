@@ -32,11 +32,12 @@
 					}
 					console.log(this.obj)
 				})
-			}
+			},
+
 		},
 		created : function (){
 			this.id = this.$route.params.id;
-			this.getData();
+			this.getData(); 
 		}
 	}
 </script>
@@ -45,6 +46,10 @@
 		background-color: pink;
 		height: 1200px;
 		margin-bottom: 2.777778rem;
+		width: 100%;
+	}
+	.detail img{
+		width: 100%;
 	}
 	form{
 		background-color: #fff;

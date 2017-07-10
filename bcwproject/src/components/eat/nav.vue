@@ -13,6 +13,7 @@
 					<h3>{{i.title}}</h3>
 					<img :src="i.imageUrl" alt="">
 				</router-link>
+				<!-- </div> -->
 			</div>
 		</div>
 	</div>
@@ -28,8 +29,20 @@
 		methods : {
 			// 获取导航栏的数据
 			getData : function(){
-				this.$http.get('../../../static/eatPageData/head_nav.json').then(res => {
-					this.list = res.data.result_data.list;
+				// this.$http.get('../../../static/eatPageData/head_nav.json').then(res => {
+				// 	this.list = res.data.result_data.list;
+				// })
+     // https://api3.vipbcw.com/site/saleList?v=2.0&pathinfo=https://m.vipbcw.com/home/index
+				this.$http.get({
+					url : 'http://127.0.0.1:9999',
+					params : {
+						hostname : 'api3.vipbcw.com',
+						path : '/eatit/index?',
+						pathinfo : 'https://m.vipbcw.com/substance/index'
+					},
+					method : 'get',
+				}).then(res=>{
+					console.log(res);
 				})
 			},
 
@@ -60,9 +73,9 @@
 </script>
 <style>
 	.nav{
-		height: 3.333333rem;
+		height: 1.388889rem;
 		position: fixed;
-		top: 2.777778rem;
+		top: 1.388889rem;
 		left: 0;
 		right: 0;
 		background-color: #F4F7FB;
@@ -75,26 +88,36 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		
 	}
 	.nav li img{
-		width: 1.2rem;
-		margin-top: 0.338889rem;
+		width: 0.555556rem;
 	}
 	.nav li p{
-		font-size: 0.666667rem;
-		line-height: 1.388889rem;
+		line-height: 0.555556rem;
+		font-size: 0.444444rem;
 	}
 	.nav li:hover{
 		background-color: #DCECFF;
 	}
 	.daily{
-		margin-top: 6.4rem;
+		margin-top: 2.777778rem;
 		margin-bottom: 3.9rem;
 		background-color: #EDEDED;
+		/*font-size: 0.5rem;*/
 	}
 	.daily>div{
 		margin-bottom: 10px;
 		background-color: #fff;
+		padding: 10px;
+	}
+	.daily>div a{
+		color: black;
+		text-decoration: none;
+	}
+	.daily>div h3{
+		text-indent: -4px;
+		margin: 10px 0;
 	}
 	.daily img{
 		width: 100%;

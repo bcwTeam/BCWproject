@@ -14,9 +14,9 @@
 </script>
 <style>
 	.read{
-		line-height: 2.777778rem;
+		line-height: 1.388889rem;
 		text-align: center;
-		font-size: 0.833333rem;
+		font-size: 0.533333rem;
 		border-bottom: 0.027778rem solid #E5E5E5;
 		position: fixed;
 		top: 0;
