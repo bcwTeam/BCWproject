@@ -5,11 +5,17 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-import Lazyload from "vue-lazyload-img"
+import lazyload from "vue-lazyload"
 
 Vue.use(VueAwesomeSwiper)
 
 Vue.use(lazyload)
+
+Vue.use(lazyload, {
+	preload: 1.3,
+	error: '',//加载失败
+	loading: ''//正在加载
+})
 
 Vue.config.productionTip = false
 
