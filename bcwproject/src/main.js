@@ -4,12 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import Lazyload from "vue-lazyload-img"
+// import VueAwesomeSwiper from 'vue-awesome-swiper'
+// import Lazyload from "vue-lazyload-img"
 
-Vue.use(VueAwesomeSwiper)
+// Vue.use(VueAwesomeSwiper)
 
-Vue.use(lazyload)
+// Vue.use(lazyload)
 
 Vue.config.productionTip = false
 

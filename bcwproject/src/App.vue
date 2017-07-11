@@ -32,7 +32,6 @@ export default {
 	padding:0;
 	margin:0
 }
-<<<<<<< HEAD
 .tab_bar{
   list-style: none;
   display: flex;
@@ -47,8 +46,8 @@ export default {
 .tab_bar>li{
   width:25%;
   text-align: center;
-=======
-ul{
+}
+.tab_bar{
 	list-style: none;
 	display: flex;
 	align-items: center;
@@ -60,9 +59,8 @@ ul{
 	right:0;
 	font-size: .2rem;
 }
-ul li{
+.tab_bar li{
 	width:20%;
 	text-align: center;
->>>>>>> 6faa081e129aa077d07fcfadd35a02ed8e90ea94
 }
 </style>
