@@ -6,9 +6,12 @@
 			</a>
 		</header>
 		<nav>
-			<ul>
-				<li v-for="item in navList">
-					{{ item.title == "" ? item.image_url : item.title }}
+			<ul class="nav">
+				<li v-for="(item, index) in navList" :class="{active: currentIndex == index }" @click="currentIndex = index">
+				 	<p class="nav_content">
+				 		{{ item.title }}
+				 		<img :src="item.image_url" alt="" v-if="item.title == ''">
+				 	</p>
 				</li>
 			</ul>
 		</nav>
@@ -18,11 +21,17 @@
 <script>
 	export default{
 		name: 'homeHeader',
-		props: ['navList']
+		props: ['navList'],
+		data () {
+			return {
+				currentIndex: 0
+			}
+		}
 	}
 </script>
 
 <style type="text/css">
+	
 	.home_header header{
 		position: fixed;
 		left: 0;
@@ -50,6 +59,38 @@
 		height: auto;
 		
 	}
+	.home_header .nav{
+		position: fixed;
+		top: 1.0869rem;
+		left: 0;
+		right: 0;
+		display: flex;
+		font-size: 0.34rem;
+		width: 100%;
+		overflow-x: auto;
+		white-space: nowrap;
+		height: 1rem;
+		line-height: 1rem;
+		background-color: #fff;
+	}
+	.home_header .nav li{
+		border-top-width: 2px;
+		border-top-style: solid;
+		border-top-color: rgb(239, 240, 240);
+	}
+	.home_header .nav .nav_content{
+		width: 2.1rem;
+		height: 100%;
+		text-align: center;
+	}
+	.home_header .nav_content img{
+		width: 100%;
+		height: 1rem;
+	}
+	.home_header .nav .active{
+		color: #FF5742;
+		border-top: 2px solid #FF5843;
+	}
 </style>
 
-
+ 

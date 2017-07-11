@@ -22,11 +22,11 @@
 			this.$http.get('../../../static/data/beCherry/nav.json').then(res=> {
 				console.log(res.data.result_data.list)
 				this.navList = res.data.result_data.list
+			}),
+			this.$http.get('../../../static/data/tabbar.json').then(res=>{
+				console.log(res.data.result_data.banner)
+				this.tabbar = res.data.result_data.banner
 			})
-			// this.$http.get('../../../static/data/tabbar.json').then(res=>{
-			// 	console.log(res.data.result_data.banner)
-			// 	this.nav_list = res.data.result_data.banner
-			// })
 		}
 	}
 </script>
