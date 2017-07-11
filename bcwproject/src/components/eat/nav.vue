@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<ul class="nav">
+		<ul class="eat_nav">
 			<li v-for="(item,index) in list" @click="changeContent(item.type,index)" :class="currentIndex==index?'active':''">
 				<img :src="item.image_logo" alt="">
 				<p>{{item.title}}</p>
@@ -90,7 +90,7 @@
 </script>
 <style>
 		/*导航栏*/
-	.nav{
+	.eat_nav{
 		height: 1.388889rem;
 		position: fixed;
 		top: 1.388889rem;
@@ -100,7 +100,7 @@
 		z-index: 23;
 	}
 	/*导航栏各项*/
-	.nav li{
+	.eat_nav li{
 		width: 33.333%;
 		height: 100%;
 		display: flex;
@@ -110,11 +110,11 @@
 		
 	}
 	/*导航栏各项里面的图片*/
-	.nav li img{
+	.eat_nav li img{
 		width: 0.555556rem;
 	}
 	/*导航栏各项里面的标题*/
-	.nav li p{
+	.eat_nav li p{
 		line-height: 0.555556rem;
 		font-size: 0.444444rem;
 	}
