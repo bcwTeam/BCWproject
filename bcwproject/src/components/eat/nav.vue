@@ -101,6 +101,7 @@
 	}
 	/*导航栏各项*/
 	.eat_nav li{
+		float: left;
 		width: 33.333%;
 		height: 100%;
 		display: flex;

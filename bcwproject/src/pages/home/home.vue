@@ -133,10 +133,21 @@
 			return {
 				selectionDataBottom:[],
 				newProductData:[],
-				everydaySelectionData:[]
+				everydaySelectionData:[],
+				pic : []
 			};
 		},
-		methods:{
+		components: {
+			tabBar,
+			swiper,
+		},
+		methods : {
+			getSwiperData : function(){
+				this.$http.get('../../../static/data/beCherry/.json').then(res => {
+					// console.log(res.data.result_data.list[0].data_list);
+					this.pic = res.data.result_data.list[0].data_list
+				})
+			},
 			getSelectionData:function(){
 				var $this=this;
 				this.$http.get("../../../static/data/selection.json").then(function(res){
@@ -160,30 +171,11 @@
 				})
 			}
 		},
-		created:function(){
+		created (){
+			this.getSwiperData();
 			this.getSelectionData();
 			this.getNewProductData();
 			this.getEverydaySelectionData();
-		},
-		components: {
-			tabBar,
-			swiper,
-		},
-		data () {
-			return {
-				pic : []
-			}
-		},
-		methods : {
-			getSwiperData : function(){
-				this.$http.get('../../../static/data/beCherry/swiper.json').then(res => {
-					console.log(res.data.result_data.list[0].data_list);
-					this.pic = res.data.result_data.list[0].data_list
-				})
-			}
-		},
-		created : function(){
-			this.getSwiperData()
 		},
 	}
 </script>
