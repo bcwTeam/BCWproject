@@ -7,7 +7,7 @@
 		</header>
 		<nav>
 			<ul class="nav">
-				<li v-for="(item, index) in navList" :class="{active: currentIndex == index }" @click="currentIndex = index">
+				<li v-for="(item, index) in navList" :class="{home_active: currentIndex == index }" @click="currentIndex = index">
 				 	<p class="nav_content">
 				 		{{ item.title }}
 				 		<img :src="item.image_url" alt="" v-if="item.title == ''">
@@ -45,6 +45,7 @@
 		background-size: 15%;
 		background-position: center center;
 		padding: 0 0.3rem;
+		z-index: 99;
 	}
 
 	.home_header .search{
@@ -71,6 +72,7 @@
 		white-space: nowrap;
 		height: 1rem;
 		line-height: 1rem;
+		z-index: 99;
 		background-color: #fff;
 	}
 	.home_header .nav li{
@@ -87,7 +89,7 @@
 		width: 100%;
 		height: 1rem;
 	}
-	.home_header .nav .active{
+	.home_header .nav .home_active{
 		color: #FF5742;
 		border-top: 2px solid #FF5843;
 	}

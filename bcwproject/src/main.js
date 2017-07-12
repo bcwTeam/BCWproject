@@ -5,8 +5,20 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 
+
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import lazyload from "vue-lazyload"
+
+
+
+
+Vue.use(VueAwesomeSwiper)
+
+Vue.use(lazyload,{
+	preLoad : 1.3,
+	listenEvents: [ 'scroll' ]
+})
+
 
 
 Vue.use(VueAwesomeSwiper)

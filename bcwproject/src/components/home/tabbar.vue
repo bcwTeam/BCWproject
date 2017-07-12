@@ -23,7 +23,7 @@
 		},
 		created () {
 			this.$http.get('../../../static/data/tabbar.json').then(res=>{
-				console.log(res.data.result_data.banner)
+				// console.log(res.data.result_data.banner)
 				this.nav_list = res.data.result_data.banner
 			})
 		},

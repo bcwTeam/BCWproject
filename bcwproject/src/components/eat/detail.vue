@@ -1,4 +1,4 @@
-<template>
+<template> 
 	<div class="detail">
 		<h1>eat-detail</h1>
 		<p>{{id}}</p>	
@@ -54,7 +54,7 @@
 	form{
 		background-color: #fff;
 		width: 100%;
-		height: 3.333333rem;
+		height: 1.65rem;
 		position: fixed;
 		left: 0;
 		right: 0;
@@ -64,8 +64,8 @@
 		align-items: center;
 	}
 	form input{
-		height: 1.944444rem;
-		width: 16.666667rem;
+		height: 1rem;
+		width: 8.3rem;
 		vertical-align: top;
 		border: none;
 		background-color: #E5E5E5;
@@ -75,12 +75,13 @@
 		outline: none;
 	}
 	form button{
-		height: 1.944444rem;
-		width: 2.777778rem;
+		height: 1rem;
+		width: 1.3rem;
 		vertical-align: top;
 		border: none;
 		background-color: #FF4F39;
 		color: #fff;
 		border-radius: 0.25rem;
+		outline: none;
 	}
 </style>

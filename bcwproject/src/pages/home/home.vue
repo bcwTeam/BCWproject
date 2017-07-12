@@ -2,6 +2,12 @@
 	<div>
 		<home-header :navList = "navList"></home-header>
 		<tab-bar :tabbar = "tabbar"></tab-bar>
+
+		<swiper :swiperPic="pic">
+			
+		</swiper>
+
+
     <!--会员中心，每日签到，豆味商城，包邮专区-->
 		<div class="homeClass">
 			<dl>
@@ -116,6 +122,7 @@
 			</dl>
 		</div>
 
+
 		<tab-bar></tab-bar>
 	</div>
 </template>
@@ -123,9 +130,35 @@
 <script>
 	import tabBar from '../../components/home/tabbar'
 	import homeHeader from '../../components/home/homeHeader'
+	import swiper from '../../components/home/swiper'
 	export default{
-		
-		methods:{
+		data(){
+			return {
+				selectionDataBottom:[],
+				newProductData:[],
+				everydaySelectionData:[],
+				pic : [],
+				navList: [],
+				tabbar: [],
+				selectionDataBottom:[],
+				newProductData:[],
+				everydaySelectionData:[]
+			};
+		},
+		components: {
+			tabBar,
+			swiper,
+			homeHeader, 
+			tabBar
+		},
+		methods : {
+			getSwiperData : function(){
+				this.$http.get('../../../static/data/beCherry/swiper.json').then(res => {
+					// console.log(res.data.result_data.list[0].data_list);
+					this.pic = res.data.result_data.list[0].data_list
+				})
+			},
+
 			getSelectionData:function(){
 				var $this=this;
 				this.$http.get("../../../static/data/selection.json").then(function(res){
@@ -149,18 +182,6 @@
 				})
 			}
 		},
-		components: {
-			homeHeader, tabBar
-		},
-		data () {
-			return {
-				navList: [],
-				tabbar: [],
-				selectionDataBottom:[],
-				newProductData:[],
-				everydaySelectionData:[]
-			}
-		},
 		created () {
 			this.$http.get('../../../static/data/beCherry/nav.json').then(res=> {
 				console.log(res.data.result_data.list)
@@ -169,7 +190,12 @@
 			this.getSelectionData();
 			this.getNewProductData();
 			this.getEverydaySelectionData();
+			this.getSwiperData();
+			this.getSelectionData();
+			this.getNewProductData();
+			this.getEverydaySelectionData();
 		}
+
 	}
 </script>
 
