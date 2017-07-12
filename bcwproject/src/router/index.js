@@ -28,8 +28,13 @@ import Detail from '../components/eat/detail'
 
 export default new Router({
 	routes: [
-    	{
+		{
 			path: '/',
+			name: 'home',
+		 	component: Home,
+		},
+    	{
+			path: '/home',
 			name: 'home',
 		 	component: Home,
 		 	children: [
