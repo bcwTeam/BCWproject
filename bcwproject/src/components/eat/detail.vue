@@ -41,7 +41,7 @@
 		}
 	}
 </script>
-<style>
+<style scope>
 	.detail{
 		background-color: pink;
 		height: 1200px;
