@@ -40,7 +40,14 @@
 		},
 		methods : {
 			changeContent : function(type){
-				this.$router.push({name : 'DetailClassify',params:{id : type.cat_id}})
+				console.log(type.cat_name);
+				this.$router.push({
+					name : 'DetailClassify',
+					params:{
+						id : type.cat_id,
+						title : type.cat_name,
+					},
+				});
 			}
 		}
 	}

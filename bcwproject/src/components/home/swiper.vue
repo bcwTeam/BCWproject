@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="swiperContainer">
 	   <swiper :options="swiperOption">
 		    <swiper-slide v-for="slide in swiperPic" class="pic">
 		    	<img :src="slide.image_url" alt="">
@@ -30,6 +30,10 @@
 	}
 </script>
 <style>
+	.swiperContainer{
+		margin-top: 2.16rem;
+		border: 0.027778rem solid #fff;
+	}
 	.pic{
 		width: 100%;
 	}

@@ -1,6 +1,6 @@
 <template>
 	<div class="classDetailPage">
-		<div class="classDetailHead"><b><</b><span>坚果炒货</span></div>
+		<div class="classDetailHead"><b><</b><span>{{titleHead}}</span></div>
 		<ul>
 			<li v-for="(i,index) in navList" :class="currentIndex==index?'navItem':''" @click="change(index)">{{i.title}}</li>
 		</ul>
@@ -21,6 +21,7 @@
 				classifyDataList : [],
 				navList : [{title : '销量'},{title : '新品'},{title : '价格'}],
 				currentIndex : 0,
+				titleHead : '',
 			}
 		},
 		methods : {
@@ -37,6 +38,7 @@
 		},
 		created () {
 			this.id = this.$route.params.id;
+			this.titleHead = this.$route.params.title;
 			this.getClassifyDataDetail(); 
 		}
 	}
