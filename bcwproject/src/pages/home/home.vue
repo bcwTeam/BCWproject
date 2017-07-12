@@ -143,7 +143,7 @@
 		},
 		methods : {
 			getSwiperData : function(){
-				this.$http.get('../../../static/data/beCherry/.json').then(res => {
+				this.$http.get('../../../static/data/beCherry/swiper.json').then(res => {
 					// console.log(res.data.result_data.list[0].data_list);
 					this.pic = res.data.result_data.list[0].data_list
 				})

@@ -24,6 +24,7 @@ import Dalay from '../pages/eat/dalay'
 import Knowledge from '../pages/eat/knowledge'
 
 import Detail from '../components/eat/detail'
+import DetailClassify from '../components/class/detail'
 
 
 export default new Router({
@@ -67,6 +68,11 @@ export default new Router({
 	        path: '/detail',
 			name: 'Detail',
 		 	component: Detail,
+	    },
+	    {
+	        path: '/detailclassify',
+			name: 'DetailClassify',
+		 	component: DetailClassify,
 	    },
 	]
 })

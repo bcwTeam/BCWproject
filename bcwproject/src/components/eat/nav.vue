@@ -13,15 +13,15 @@
 					<h3>{{i.title}}</h3>
 					<p class="des">{{i.description}}</p>
 					<img v-lazy="i.imageUrl" alt="" class="lazy">
-					<p class="itemContainer">
-						<img :src="i.auther.avatar" alt="" class="auther_pic">
-						<span class="auther">{{i.auther.nickname}}</span>
-						<img src="../../../static/images/zan.png" height="20" width="22" alt="" class="zan">
-						<span class="praise_count">{{i.comment_count}}</span>
-						<img src="../../../static/images/pinlun.png" height="21" width="20" alt="" class="pinlun">
-						<span class="comment_count">{{i.praise_count}}</span>
-					</p>
 				</router-link>
+				<p class="itemContainer">
+					<img :src="i.auther.avatar" alt="" class="auther_pic">
+					<span class="auther">{{i.auther.nickname}}</span>
+					<img :src="i.zanImg" height="20" width="22" alt="" class="zan" @click="dianzan(i)">
+					<span class="praise_count">{{i.comment_count}}</span>
+					<img src="../../../static/images/pinlun.png" height="21" width="20" alt="" class="pinlun">
+					<span class="comment_count">{{i.praise_count}}</span>
+				</p>
 				<!-- </div> -->
 			</div>
 		</div>
@@ -43,27 +43,15 @@
 				this.$http.get('../../../static/eatPageData/head_nav.json').then(res => {
 					this.list = res.data.result_data.list;
 				})
-
-				// 反向代理
-     // https://api3.vipbcw.com/eatit/getCategory?pathinfo=https://m.vipbcw.com/substance/index
-			// 	this.$http({
-			// 		url : 'http://127.0.0.1:9999',
-			// 		params : {
-			// 			hostname : 'api3.vipbcw.com',
-			// 			path : '/eatit/getCategory?',
-			// 			pathinfo : 'https://m.vipbcw.com/substance/index'
-			// 		},
-			// 		method : 'get',
-			// 	}).then(res=>{
-			// 		console.log(res.data.result_data.list);
-			// 		this.list = res.data.result_data.list;
-			// 	})
 			},
 
 			// 获取日常数据（默认展示）
 			getEveryData : function(){
 				this.$http.get('../../../static/eatPageData/data1.json').then(res=>{
 					this.daily = res.data.result_data.list;
+					for (var i = 0; i < this.daily.length; i++) {
+						this.daily[i].zanImg = '../../../static/images/zan.png';
+					}
 				})
 			},
 
@@ -72,12 +60,19 @@
 				this.$http.get('../../../static/eatPageData/data'+type+'.json').then(res=>{
 					this.daily = res.data.result_data.list;
 					// console.log(this.daily);
+					for (var i = 0; i < this.daily.length; i++) {
+						this.daily[i].zanImg = '../../../static/images/zan.png';
+					};
 				});
 				this.currentIndex = index;
 			},
 
 			goto : function(id){
 				this.$router.push({name : 'Detail',params:{id : id}})
+			},
+			dianzan : function(item){
+				item.zanImg = '../../../static/images/zan2.png';
+				console.log(item.zanImg);
 			}
 
 		},

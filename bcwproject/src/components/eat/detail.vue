@@ -1,4 +1,4 @@
-<template>
+<template> 
 	<div class="detail">
 		<h1>eat-detail</h1>
 		<p>{{id}}</p>	
