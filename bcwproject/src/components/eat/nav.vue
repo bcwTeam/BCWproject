@@ -73,7 +73,7 @@
 			},
 			dianzan : function(item){
 				item.zanImg = '../../../static/images/zan2.png';
-				console.log(item.zanImg);
+				item.praise_count++;
 			}
 
 		},
