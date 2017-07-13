@@ -1,4 +1,4 @@
-<template>
+<template> 
 	<div>
 		<ul class="eat_nav">
 			<li v-for="(item,index) in list" @click="changeContent(item.type,index)" :class="currentIndex==index?'active':''">

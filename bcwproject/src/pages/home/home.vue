@@ -14,17 +14,22 @@
 				<dt>
 					<img src="../../../static/data/img/vipCenter.jpg">
 				</dt>
-				<dd>
-					会员中心
-				</dd>
+				<!-- 会员中心跳转页面 -->
+				<router-link :to="{name:'Member_center',params:{title:'会员中心'}}">
+					<dd>
+						会员中心
+					</dd>
+				</router-link>
 			</dl>
 			<dl>
 				<dt>
 					<img src="../../../static/data/img/everydaySign.jpg">
 				</dt>
+				<router-link :to="{name:'Daily_sign',params:{title:'每日签到'}}">
 				<dd>
 					每日签到
 				</dd>
+				</router-link>
 			</dl>
 			<dl>
 				<dt>
@@ -260,8 +265,13 @@
 	#newProductBottom{
 		width:100%;
 		white-space: nowrap;
+<<<<<<< HEAD
+	    overflow-x: auto;
+	    overflow-y: hidden;
+=======
 		overflow-x: auto;
 		overflow-y: hidden
+>>>>>>> 1815c4c276869c62fc0a5e37ff26b259b4c62d7c
 	}
 	#newProductBottom div{
 		width:360%;
