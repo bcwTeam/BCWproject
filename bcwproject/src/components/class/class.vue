@@ -40,7 +40,7 @@
 		},
 		methods : {
 			changeContent : function(type){
-				console.log(type.cat_name);
+				// console.log(type.cat_name);
 				this.$router.push({
 					name : 'DetailClassify',
 					params:{

@@ -8,6 +8,7 @@ import axios from 'axios'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import lazyload from "vue-lazyload"
+import store from '../src/vuex/store'
 
 
 
@@ -39,6 +40,7 @@ Vue.prototype.$http = axios;
 new Vue({
 	el: '#app',
 	router,
+	store,
 	template: '<App/>',
 	components: { App }
 })

@@ -1,6 +1,5 @@
 <template> 
 	<div class="detail">
-		<h1>eat-detail</h1>
 		<p>{{id}}</p>	
 		<p>{{obj.title}}</p>
 		<img :src="obj.imageUrl" alt="">
@@ -43,8 +42,6 @@
 </script>
 <style scope>
 	.detail{
-		background-color: pink;
-		height: 1200px;
 		margin-bottom: 2.777778rem;
 		width: 100%;
 	}
@@ -58,7 +55,7 @@
 		position: fixed;
 		left: 0;
 		right: 0;
-		bottom: 2.777778rem;
+		bottom: 0;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
