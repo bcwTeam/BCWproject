@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from 'vue' 
 import Router from 'vue-router'
 
 
@@ -25,6 +25,8 @@ import Knowledge from '../pages/eat/knowledge'
 
 import Detail from '../components/eat/detail'
 
+import Member_center from '../pages/home/member_center'
+import Daily_sign from '../components/home/daily_sign'
 
 export default new Router({
 	routes: [
@@ -67,6 +69,16 @@ export default new Router({
 	        path: '/detail',
 			name: 'Detail',
 		 	component: Detail,
+	    },
+	    {
+	        path: '/member_center',
+			name: 'Member_center',
+		 	component: Member_center,
+	    },
+	    {
+	        path: '/daily_sign',
+			name: 'Daily_sign',
+		 	component: Daily_sign,
 	    },
 	]
 })

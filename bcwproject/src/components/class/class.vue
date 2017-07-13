@@ -34,7 +34,7 @@
 		created(){
 			this.$http.get('../../../static/data/class.json').then(res=>{
 				console.log(res.data.result_data.bottom);
-				this.list = res.data.result_data.bottom;
+				this.list = res.data.result_data;
 
 			})
 		}

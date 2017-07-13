@@ -1,4 +1,4 @@
-<template>
+<template> 
 	<div>
 		<ul class="nav">
 			<li v-for="item in list" @click="changeContent(item.type)">
