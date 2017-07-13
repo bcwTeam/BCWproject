@@ -1,29 +1,17 @@
 <template>
 	<div>
 		<router-view></router-view>
-	    <ul class="tab_bar">
-	        <li>
-	          <router-link to="/">Home</router-link>
-	        </li>
-	        <li>
-	          <router-link to="/class">Class</router-link>
-	        </li>
-	        <li>
-	          <router-link to="/eat">Eat</router-link>
-	        </li>
-	        <li>
-	          <router-link to="/cart">Cart</router-link>
-	        </li>
-	        <li>
-	          <router-link to="/mine">Mine</router-link>
-	        </li>
-	    </ul>
+	    <!-- <tab-bar></tab-bar> -->
 	</div>
 </template>
 
 <script>
+import tabBar from './components/home/tabbar'
 export default {
-    name: 'app'
+    name: 'app',
+    components: {
+    	tabBar
+    }
 }
 </script>
 
@@ -32,6 +20,7 @@ export default {
 	padding:0;
 	margin:0
 }
+
 .tab_bar{
   list-style: none;
   display: flex;
@@ -47,20 +36,5 @@ export default {
   width:25%;
   text-align: center;
 }
-.tab_bar{
-	list-style: none;
-	display: flex;
-	align-items: center;
-	position: fixed;
-	line-height: .5rem;
-	background-color: #dfdfdf;
-	bottom:0;
-	left:0;
-	right:0;
-	font-size: .2rem;
-}
-.tab_bar li{
-	width:20%;
-	text-align: center;
-}
+
 </style>

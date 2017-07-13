@@ -24,14 +24,20 @@ import Dalay from '../pages/eat/dalay'
 import Knowledge from '../pages/eat/knowledge'
 
 import Detail from '../components/eat/detail'
+import DetailClassify from '../components/class/detail'
 
 import Member_center from '../pages/home/member_center'
 import Daily_sign from '../components/home/daily_sign'
 
 export default new Router({
 	routes: [
-    	{
+		{
 			path: '/',
+			name: 'home',
+		 	component: Home,
+		},
+    	{
+			path: '/home',
 			name: 'home',
 		 	component: Home,
 		 	children: [
@@ -71,6 +77,7 @@ export default new Router({
 		 	component: Detail,
 	    },
 	    {
+<<<<<<< HEAD
 	        path: '/member_center',
 			name: 'Member_center',
 		 	component: Member_center,
@@ -79,6 +86,11 @@ export default new Router({
 	        path: '/daily_sign',
 			name: 'Daily_sign',
 		 	component: Daily_sign,
+=======
+	        path: '/detailclassify',
+			name: 'DetailClassify',
+		 	component: DetailClassify,
+>>>>>>> 1815c4c276869c62fc0a5e37ff26b259b4c62d7c
 	    },
 	]
 })

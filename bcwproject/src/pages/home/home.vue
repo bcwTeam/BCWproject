@@ -1,5 +1,13 @@
 <template>
 	<div>
+		<home-header :navList = "navList"></home-header>
+		<tab-bar :tabbar = "tabbar"></tab-bar>
+
+		<swiper :swiperPic="pic">
+			
+		</swiper>
+
+
     <!--会员中心，每日签到，豆味商城，包邮专区-->
 		<div class="homeClass">
 			<dl>
@@ -119,52 +127,80 @@
 			</dl>
 		</div>
 
+
 		<tab-bar></tab-bar>
 	</div>
 </template>
 
 <script>
 	import tabBar from '../../components/home/tabbar'
+	import homeHeader from '../../components/home/homeHeader'
+	import swiper from '../../components/home/swiper'
 	export default{
 		data(){
 			return {
 				selectionDataBottom:[],
 				newProductData:[],
+				everydaySelectionData:[],
+				pic : [],
+				navList: [],
+				tabbar: [],
+				selectionDataBottom:[],
+				newProductData:[],
 				everydaySelectionData:[]
 			};
 		},
-		methods:{
+		components: {
+			tabBar,
+			swiper,
+			homeHeader, 
+			tabBar
+		},
+		methods : {
+			getSwiperData : function(){
+				this.$http.get('../../../static/data/beCherry/swiper.json').then(res => {
+					// console.log(res.data.result_data.list[0].data_list);
+					this.pic = res.data.result_data.list[0].data_list.slice(0,4);
+				})
+			},
+
 			getSelectionData:function(){
 				var $this=this;
 				this.$http.get("../../../static/data/selection.json").then(function(res){
 					$this.selectionDataBottom=JSON.parse(res.request.response);
-					console.log(JSON.parse(res.request.response));
+					//console.log(JSON.parse(res.request.response));
 				})
 			},
 			getNewProductData:function(){
 				var $this=this;
 				this.$http.get("../../../static/data/newProduct.json").then(function(res){
-					console.log(JSON.parse(res.request.response).result_data.list[4].data_list);
+					//console.log(JSON.parse(res.request.response).result_data.list[4].data_list);
 					$this.newProductData=JSON.parse(res.request.response).result_data.list[4].data_list;
 				})
 			},
 			getEverydaySelectionData:function(){
 				var $this=this;
 				this.$http.get("../../../static/data/everydaySelection.json").then(function(res){
-					console.log(JSON.parse(res.request.response).result_data.list);
+					//console.log(JSON.parse(res.request.response).result_data.list);
 					$this.everydaySelectionData=JSON.parse(res.request.response).result_data.list;
 
 				})
 			}
 		},
-		created:function(){
+		created () {
+			this.$http.get('../../../static/data/beCherry/nav.json').then(res=> {
+				console.log(res.data.result_data.list)
+				this.navList = res.data.result_data.list
+			}),
 			this.getSelectionData();
 			this.getNewProductData();
 			this.getEverydaySelectionData();
-		},
-		components: {
-			tabBar
+			this.getSwiperData();
+			this.getSelectionData();
+			this.getNewProductData();
+			this.getEverydaySelectionData();
 		}
+
 	}
 </script>
 
@@ -229,8 +265,13 @@
 	#newProductBottom{
 		width:100%;
 		white-space: nowrap;
+<<<<<<< HEAD
 	    overflow-x: auto;
 	    overflow-y: hidden;
+=======
+		overflow-x: auto;
+		overflow-y: hidden
+>>>>>>> 1815c4c276869c62fc0a5e37ff26b259b4c62d7c
 	}
 	#newProductBottom div{
 		width:360%;

@@ -1,6 +1,5 @@
-<template>
+<template> 
 	<div class="detail">
-		<h1>eat-detail</h1>
 		<p>{{id}}</p>	
 		<p>{{obj.title}}</p>
 		<img :src="obj.imageUrl" alt="">
@@ -41,10 +40,8 @@
 		}
 	}
 </script>
-<style>
+<style scope>
 	.detail{
-		background-color: pink;
-		height: 1200px;
 		margin-bottom: 2.777778rem;
 		width: 100%;
 	}
@@ -54,18 +51,18 @@
 	form{
 		background-color: #fff;
 		width: 100%;
-		height: 3.333333rem;
+		height: 1.65rem;
 		position: fixed;
 		left: 0;
 		right: 0;
-		bottom: 2.777778rem;
+		bottom: 0;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
 	}
 	form input{
-		height: 1.944444rem;
-		width: 16.666667rem;
+		height: 1rem;
+		width: 8.3rem;
 		vertical-align: top;
 		border: none;
 		background-color: #E5E5E5;
@@ -75,12 +72,13 @@
 		outline: none;
 	}
 	form button{
-		height: 1.944444rem;
-		width: 2.777778rem;
+		height: 1rem;
+		width: 1.3rem;
 		vertical-align: top;
 		border: none;
 		background-color: #FF4F39;
 		color: #fff;
 		border-radius: 0.25rem;
+		outline: none;
 	}
 </style>
