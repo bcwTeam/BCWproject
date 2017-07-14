@@ -11,9 +11,6 @@
 				</div>味豆商城
 			</div>
 			<div class="dou_bottom">
-				<div class="dou_flash" v-for = "item in list">
-					<!-- <img :src="item.image_url"> -->
-				</div>
 				<div class="mall_nav">
 					<ul>
 						<li>
