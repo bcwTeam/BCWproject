@@ -49,7 +49,6 @@
 			},
 			// 添加商品
 			addGood :function(item){
-				console.log(item);
 				this.$store.dispatch('addGoods',item);
 
 			},
