@@ -26,7 +26,7 @@
 	            autoplayDisableOnInteraction : false,
 	        }
 	      }
-	    },
+	    }
 	}
 </script>
 <style>

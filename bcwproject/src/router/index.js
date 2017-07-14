@@ -28,7 +28,8 @@ import DetailClassify from '../components/class/detail'
 
 import Member_center from '../pages/home/member_center'
 import Daily_sign from '../components/home/daily_sign'
-
+import Dou_shop from '../components/home/dou_shop'
+import Postage from '../components/home/postage'
 export default new Router({
 	routes: [
 		{
@@ -77,7 +78,6 @@ export default new Router({
 		 	component: Detail,
 	    },
 	    {
-<<<<<<< HEAD
 	        path: '/member_center',
 			name: 'Member_center',
 		 	component: Member_center,
@@ -86,11 +86,22 @@ export default new Router({
 	        path: '/daily_sign',
 			name: 'Daily_sign',
 		 	component: Daily_sign,
-=======
+		 },
+		 {
 	        path: '/detailclassify',
 			name: 'DetailClassify',
 		 	component: DetailClassify,
->>>>>>> 1815c4c276869c62fc0a5e37ff26b259b4c62d7c
 	    },
+	     {
+	        path: '/dou_shop',
+			name: 'Dou_shop',
+		 	component: Dou_shop,
+	    },
+	     {
+	        path: '/postage',
+			name: 'Postage',
+		 	component: Postage,
+	    },
+
 	]
 })
