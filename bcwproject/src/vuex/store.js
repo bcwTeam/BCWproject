@@ -4,10 +4,14 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+// State负责存储整个应用的状态数据，一般需要在使用的时候在跟节点注入store对象，
+// 后期就可以使用this.$store.state直接获取状态
 const state = {
-	goodsList : [],
+	goodsList : [], 
 }
 
+// mutation是改变state状态的唯一方法
+// 本质就是用来处理数据的函数，其接收唯一参数值state
 const mutations = {
 	addCart : function(state,item){ 
 		var _item = state.goodsList.find(c=> c.goods_id===item.goods_id);
@@ -20,6 +24,7 @@ const mutations = {
 	}
 }
 
+// 触发mutation里面的函数  异步逻辑应该封装在action中
 const actions = {
 	addGoods : function(context,item){
 		context.commit('addCart',item)

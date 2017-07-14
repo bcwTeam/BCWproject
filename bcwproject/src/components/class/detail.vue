@@ -30,7 +30,7 @@
 				navList : [{title : '销量'},{title : '新品'},{title : '价格'}],
 				currentIndex : 0,
 				titleHead : '',
-			}
+			} 
 		},
 		methods : {
 			// 获取数据
@@ -49,9 +49,8 @@
 			},
 			// 添加商品
 			addGood :function(item){
-				console.log(item);
 				this.$store.dispatch('addGoods',item);
-
+				//addGoods是store.js中action中的addGoods函数
 			},
 		},
 		created () {

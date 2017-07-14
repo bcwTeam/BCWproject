@@ -31,17 +31,23 @@
 			<!-- 每件商品 -->
 			<div class="allGoodsContainer">
 				<div v-for="(item,index) in cartList" class="everGood">
-					<input type="checkbox" v-model="item.choseEvery1" @click="choseEvery(item)" >
+					<input type="checkbox" v-model="item.choseEvery1" @click="choseEvery(item)" class="danxuan">
 					<img :src="item.goods_icon" alt="" class="goodImg">
-					<p style="float:right">{{item.shop_price}}</p>
-					<!-- <p>{{item.goods_title}}</p> -->
-					<span @click="delNum(item)">-</span>
-					<span>{{item.num}}</span>
-					<span @click="addNum(item)">+</span>
+					<p style="float:right" class="price">￥ {{item.shop_price}}</p>
+					<p class="title">{{item.goods_title}}</p>
+					<p class="addOrDel">
+						<span @click="delNum(item)">-</span>
+						<span class="tebie">{{item.num}}</span>
+						<span @click="addNum(item)">+</span>
+					</p>
+					
 				</div>
 			</div>
 			<div class="jiesuan">
-				<input type="checkbox" @click="choseAll" v-model="chosed">结算{{totailPrice}}
+				<input type="checkbox" @click="choseAll" v-model="chosed">
+				<span>全选</span>
+				<p>合计<b>￥ {{totailPrice}}</b></p>
+				<button>去计算</button>
 			</div>
 		</div>
 		
@@ -155,6 +161,7 @@
 
 		// 刚加载出购物车页面展示内容
 		created : function(){
+			// console.log(this.$store.getters)在其他页面this.$store只能调用state和getters来获取数据
 			this.$store.getters.getGoodsList.forEach(c=>{
 				c.choseEvery1 = true;
 			})
@@ -248,11 +255,37 @@
 		height: 2.777778rem;
 		margin-top: 2px;
 		background-color: #fff;
+		position: relative;
+	}
+	.danxuan{
+		position: absolute;
+		left:0.277778rem;
+		top: 45%;
+	}
+	.price{
+		position: absolute;
+		left: 3.5rem;
+		bottom: 0.411111rem;
+		color: red;
+	}
+	.title{
+		position: absolute;
+		top: 0.355556rem;
+		left: 3.5rem;
+	}
+	.addOrDel{
+		position: absolute;
+		right: 0.027778rem;
+		bottom: 0.555556rem;
 	}
 	/*商品图片*/
 	.goodImg{
 		width: 2.166667rem;
 		height: 2.166667rem;
+		position: absolute;
+		left: 1.111111rem;
+		top: 10%;
+		border: 0.027778rem solid #ccc;
 	}
 	.everGood span{
 		display: inline-block;
@@ -260,8 +293,13 @@
 		height: 0.833333rem;
 		line-height: 0.833333rem;
 		text-align: center;
-		background-color: orange;
+		border: 0.027778rem solid #ccc;
 	}
+	.everGood .tebie{
+		border: none;
+	}
+
+
 	/*结算板块*/
 	.jiesuan{
 		width: 100%;
@@ -270,5 +308,35 @@
 		bottom: 1.444444rem;
 		background-color: #fff;
 		border-bottom: 0.027778rem solid #fff;
+	}
+	.jiesuan input{
+		position: absolute;
+		top: 43%;
+		left: 0.277778rem;
+	}
+	.jiesuan span{
+		position: absolute;
+		top: 40%;
+		left: 1.388889rem;
+	}
+	.jiesuan p{
+		position: absolute;
+		top: 40%;
+		left: 4rem;
+	}
+	.jiesuan p>b{
+		color: red;
+	}
+	.jiesuan button{
+		position: absolute;
+		height: 0.833333rem;
+		width: 3.388889rem;
+		border-radius: 0.416667rem;
+		background-color: #FF4F39;
+		color: #fff;
+		border: none;
+		outline: none;
+		top: 20%;
+		right: 0.255556rem;
 	}
 </style>
