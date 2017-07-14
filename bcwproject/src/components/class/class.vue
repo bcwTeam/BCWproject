@@ -33,7 +33,17 @@
 		//获取下方数据
 		created(){
 			this.$http.get('../../../static/data/class.json').then(res=>{
+<<<<<<< HEAD
 				this.list = res.data.result_data.bottom;
+=======
+
+				// console.log(res.data.result_data.bottom);
+				// this.list = res.data.result_data;
+
+				// console.log(res.data.result_data.bottom);
+				this.list = res.data.result_data.bottom;
+
+>>>>>>> 90b6dfa6c186028860e1a95547596f827c062e9a
 			})
 		},
 		methods : {

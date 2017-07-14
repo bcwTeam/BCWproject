@@ -32,20 +32,25 @@
 				</router-link>
 			</dl>
 			<dl>
+				<router-link :to="{name:'Dou_shop',params:{title:'味豆商城'}}">
 				<dt>
 					<img src="../../../static/data/img/beanShop.jpg">
 				</dt>
 				<dd>
-					豆味商城
+					味豆商城
 				</dd>
+				</router-link>
 			</dl>
 			<dl>
+				<router-link :to="{name:'Postage',params:{title:'包邮专区'}}">
+				<dt>
 				<dt>
 					<img src="../../../static/data/img/freePost.jpg">
 				</dt>
 				<dd>
 					包邮专区
 				</dd>
+				</router-link>
 			</dl>
 		</div>
     <!--限时秒杀-->
