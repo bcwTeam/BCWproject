@@ -1,13 +1,13 @@
 <template>
 	<div class="home_header">
 		<header>
-			<a class="search">
+			<div class="search" @click="gosearch">
 				<img src="../../../static/imgs/home/icon_search.png" alt="">
-			</a>
+			</div>
 		</header>
 		<nav>
 			<ul class="nav">
-				<li v-for="(item, index) in navList" :class="{home_active: currentIndex == index }" @click="currentIndex = index">
+				<li v-for="(item, index) in navList" :class="{ home_active : currentIndex == index }" @click="changePage(item.name, index)">
 				 	<p class="nav_content">
 				 		{{ item.title }}
 				 		<img :src="item.image_url" alt="" v-if="item.title == ''">
@@ -15,17 +15,40 @@
 				</li>
 			</ul>
 		</nav>
+		<div class="content">
+			
+		</div>
 	</div>
 </template>
 
 <script>
 	export default{
 		name: 'homeHeader',
-		props: ['navList'],
+		props: [''],
 		data () {
 			return {
-				currentIndex: 0
+				currentIndex: 0, 
+				navList:[]
 			}
+		},
+		methods: {
+			changePage (item, index) {
+				this.currentIndex = index;
+				// this.$http.get('../../../static/data/beCherry/'+item+'.json')
+			},
+			gosearch () {
+				// console.log(this.$router)
+				this.$router.replace({
+					path: '/search'
+				})
+			}
+		},
+		created () {
+			this.$http.get('../../../static/data/beCherry/nav.json')
+			.then(res=> {
+				//console.log(res.data.result_data.list)
+				this.navList = res.data.result_data.list
+			})
 		}
 	}
 </script>
@@ -74,6 +97,7 @@
 		line-height: 1rem;
 		z-index: 99;
 		background-color: #fff;
+		border-bottom: 1px solid rgb(240, 240, 240)
 	}
 	.home_header .nav li{
 		border-top-width: 2px;

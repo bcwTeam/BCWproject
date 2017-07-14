@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<home-header :navList = "navList"></home-header>
+		<home-header></home-header>
 		<tab-bar :tabbar = "tabbar"></tab-bar>
 
 		<swiper :swiperPic="pic">
@@ -121,9 +121,6 @@
 				</dd>
 			</dl>
 		</div>
-
-
-		<tab-bar></tab-bar>
 	</div>
 </template>
 
@@ -138,7 +135,6 @@
 				newProductData:[],
 				everydaySelectionData:[],
 				pic : [],
-				navList: [],
 				tabbar: [],
 				selectionDataBottom:[],
 				newProductData:[],
@@ -183,10 +179,7 @@
 			}
 		},
 		created () {
-			this.$http.get('../../../static/data/beCherry/nav.json').then(res=> {
-				console.log(res.data.result_data.list)
-				this.navList = res.data.result_data.list
-			}),
+			
 			this.getSelectionData();
 			this.getNewProductData();
 			this.getEverydaySelectionData();

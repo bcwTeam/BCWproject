@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+// import jsonp from 'jsonp'
 
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -13,6 +14,7 @@ import lazyload from "vue-lazyload"
 
 
 Vue.use(VueAwesomeSwiper)
+// Vue.use(jsonp)
 
 Vue.use(lazyload,{
 	preLoad : 1.3,

@@ -10,7 +10,8 @@
         "url": "",
         "salt": "0",
         "image_url": "",
-        "selected": "1"
+        "selected": "1",
+        "name": "recmmend"
       },
       {
         "id": "51",
@@ -19,7 +20,8 @@
         "url": "/activity/tpl/95",
         "salt": "1",
         "image_url": "http://img2.vipbcw.com/2017/06/d0e67e71a72f49d33b397e8ed3b1770f",
-        "selected": "0"
+        "selected": "0",
+        "name": "bogof"
       },
       {
         "id": "41",
@@ -28,7 +30,8 @@
         "url": "",
         "salt": "3",
         "image_url": "",
-        "selected": "0"
+        "selected": "0",
+        "name": "nut"
       },
       {
         "id": "42",
@@ -37,7 +40,8 @@
         "url": "",
         "salt": "4",
         "image_url": "",
-        "selected": "0"
+        "selected": "0",
+        "name": "sweetmeat"
       },
       {
         "id": "45",
@@ -46,7 +50,8 @@
         "url": "",
         "salt": "4",
         "image_url": "",
-        "selected": "0"
+        "selected": "0",
+        "name": "import"
       },
       {
         "id": "43",
@@ -55,7 +60,8 @@
         "url": "",
         "salt": "5",
         "image_url": "",
-        "selected": "0"
+        "selected": "0",
+        "name": "seefood"
       },
       {
         "id": "44",
@@ -64,7 +70,8 @@
         "url": "",
         "salt": "6",
         "image_url": "",
-        "selected": "0"
+        "selected": "0",
+        "name": "candy"
       },
       {
         "id": "46",
@@ -73,7 +80,8 @@
         "url": "",
         "salt": "7",
         "image_url": "",
-        "selected": "0"
+        "selected": "0",
+        "name": "driedtofu"
       }
     ],
     "default_search_words": "王者农药零食专场",

@@ -3,13 +3,13 @@ import Router from 'vue-router'
 
 
 Vue.use(Router)
-
+//一级路由
 import Home from '../pages/home/home'
 import Class from '../pages/class/class'
 import Eat from '../pages/eat/eat.vue'
 import Cart from '../pages/cart/cart'
 import Mine from '../pages/mine/mine'
-
+//home页路由
 import Bogof from '../pages/home/bogof'
 import Candy from '../pages/home/candy'
 import Driedtofu from '../pages/home/driedtofu'
@@ -19,12 +19,14 @@ import Recommend from '../pages/home/recommend'
 import Seafood from '../pages/home/seafood'
 import Sweetmeat from '../pages/home/sweetmeat'
 
+//eat页路由
 import Choose from '../pages/eat/choose'
 import Dalay from '../pages/eat/dalay'
 import Knowledge from '../pages/eat/knowledge'
-
+//详情页路由
 import Detail from '../components/eat/detail'
 import DetailClassify from '../components/class/detail'
+import Search from '../components/home/search'
 
 
 export default new Router({
@@ -78,6 +80,11 @@ export default new Router({
 	        path: '/detailclassify',
 			name: 'DetailClassify',
 		 	component: DetailClassify,
+	    },
+	    { 
+	    	path: '/search', 
+	    	name: 'searct', 
+	    	component: Search 
 	    },
 	]
 })
