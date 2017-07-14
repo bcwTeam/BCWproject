@@ -2,16 +2,19 @@
 	<div>
 		<read></read>
 		<eatNav></eatNav>
+		<tab-bar></tab-bar>
 	</div>
 </template>
 
 <script>
 	import read from '../../components/eat/eat_read'
 	import eatNav from '../../components/eat/nav'
+	import tabBar from '../../components/home/tabbar'
 	export default{
 		components : {
 			read,
-			eatNav
+			eatNav,
+			tabBar
 		}
 	}
 </script>

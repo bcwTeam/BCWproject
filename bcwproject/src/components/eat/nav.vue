@@ -1,4 +1,4 @@
-<template>
+<template> 
 	<div>
 		<ul class="eat_nav">
 			<li v-for="(item,index) in list" @click="changeContent(item.type,index)" :class="currentIndex==index?'active':''">
@@ -13,15 +13,16 @@
 					<h3>{{i.title}}</h3>
 					<p class="des">{{i.description}}</p>
 					<img v-lazy="i.imageUrl" alt="" class="lazy">
+				
+					<p class="itemContainer">
+						<img :src="i.auther.avatar" alt="" class="auther_pic">
+						<span class="auther">{{i.auther.nickname}}</span>
+						<img :src="i.zanImg" height="20" width="22" alt="" class="zan" @click.prevent="dianzan(i)">
+						<span class="praise_count">{{i.comment_count}}</span>
+						<img src="../../../static/images/pinlun.png" height="21" width="20" alt="" class="pinlun">
+						<span class="comment_count">{{i.praise_count}}</span>
+					</p>
 				</router-link>
-				<p class="itemContainer">
-					<img :src="i.auther.avatar" alt="" class="auther_pic">
-					<span class="auther">{{i.auther.nickname}}</span>
-					<img :src="i.zanImg" height="20" width="22" alt="" class="zan" @click="dianzan(i)">
-					<span class="praise_count">{{i.comment_count}}</span>
-					<img src="../../../static/images/pinlun.png" height="21" width="20" alt="" class="pinlun">
-					<span class="comment_count">{{i.praise_count}}</span>
-				</p>
 				<!-- </div> -->
 			</div>
 		</div>
@@ -72,7 +73,7 @@
 			},
 			dianzan : function(item){
 				item.zanImg = '../../../static/images/zan2.png';
-				console.log(item.zanImg);
+				item.praise_count++;
 			}
 
 		},
@@ -121,9 +122,12 @@
 	/*主体内容各项*/
 	.daily{
 		margin-top: 2.777778rem;
-		margin-bottom: 3.9rem;
+		margin-bottom: 1.7rem;
 		background-color: #EDEDED;
 		/*font-size: 0.5rem;*/
+	}
+	.daily a:active{
+    	 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	}
 	.daily>div{
 		margin-bottom: 10px;

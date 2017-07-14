@@ -155,7 +155,7 @@
 	}
 	.mine_second .yhq{
 		text-align: center;
-		width: 46%;
+		width: 50%;
 	}
 	.mine_second .yhq .yhq1{
 		font-size: 0.4rem;
