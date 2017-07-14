@@ -91,10 +91,6 @@ export default new Router({
 	        path: '/detailclassify',
 			name: 'DetailClassify',
 		 	component: DetailClassify,
-<<<<<<< HEAD
-
-=======
->>>>>>> 90b6dfa6c186028860e1a95547596f827c062e9a
 	    },
 	     {
 	        path: '/dou_shop',

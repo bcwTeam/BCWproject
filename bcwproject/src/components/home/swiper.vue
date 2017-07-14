@@ -27,12 +27,9 @@
 	        },
 	        msg : 'aaaa',
 	      }
-<<<<<<< HEAD
 	    },
 	    created : function(){
 	    	console.log(this.msg);
-=======
->>>>>>> 90b6dfa6c186028860e1a95547596f827c062e9a
 	    }
 	}
 </script>

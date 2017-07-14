@@ -47,15 +47,6 @@
 		}
 
 	}
-	window.onscroll = function () {
-		var top = document.documentElement.scrollTop || document.body.scrollTop;
-		var goTop = document.getElementById('goTop');
-		if(top>300){
-			goTop.style.display = 'block'
-		}else if(top<300){
-			goTop.style.display = 'none'
-		}
-	}
 
 
 </script>
