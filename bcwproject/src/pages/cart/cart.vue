@@ -10,7 +10,6 @@
 			<!-- 头部 -->
 			<div class="hasGoodHead">
 				<span>购物车</span>
-				<img src="../../../static/images/delete.png" height="200" width="200" alt="">
 			</div>
 
 			<!-- 还差多少包邮 -->
@@ -40,7 +39,7 @@
 						<span class="tebie">{{item.num}}</span>
 						<span @click="addNum(item)">+</span>
 					</p>
-					
+					<img src="../../../static/images/delete.png" height="200" width="200" alt="" @click="delGod(item)" class="delGood">
 				</div>
 			</div>
 			<div class="jiesuan">
@@ -108,7 +107,6 @@
 	           })
 
 	           //选中item的数组 和 总数据的长度是否相等  让全选按钮和单选按钮状态统一
-	           this.arrChosedGood = arrFlag;
 	           if (list.length == arrFlag.length) {
 	           		this.chosed = true;
 	           } else {
@@ -121,13 +119,13 @@
 
 			// 计算选中的总价钱 
 			 allPrice:function(){
+			   this.totailPrice = 0;//每次调用该函数先清空总价钱（类似于重置样式tab切换）
 			 	var arrFlag = [];
 			 	this.$store.getters.getGoodsList.forEach(c=>{
 	           		if (c.choseEvery1) {
 	           			arrFlag.push(c);
 	           		}
 	           });
-			   this.totailPrice = 0;
 			   var list = arrFlag;
 			   list.forEach(c=>{
 			   		this.totailPrice += c.shop_price * c.num;
@@ -155,6 +153,10 @@
 
 	        goToShopping : function(){
 	        	this.$router.push({name:'class'})
+	        },
+	        delGod : function(item){
+	        	this.$store.getters.getGoodsList.splice(this.$store.getters.getGoodsList.indexOf(item),1);
+	        	this.allPrice();
 	        }
 
 		},
@@ -186,15 +188,6 @@
 		top: 30%;
 		left: 43%;
 	}
-	/*头部删除图标*/
-	.hasGoodHead>img{
-		width: 0.472222rem;
-		height: 0.472222rem;
-		position: absolute;
-		right: 10px;
-		top: 30%;
-	}
-
 	/*包邮部分*/
 	.baoyou{
 		height: 1.111111rem;
@@ -275,8 +268,8 @@
 	}
 	.addOrDel{
 		position: absolute;
-		right: 0.027778rem;
-		bottom: 0.555556rem;
+		right: 2.027778rem;
+		bottom: 0.255556rem;
 	}
 	/*商品图片*/
 	.goodImg{
@@ -298,8 +291,14 @@
 	.everGood .tebie{
 		border: none;
 	}
-
-
+	/*删除按钮*/
+	.delGood{
+		width: 0.472222rem;
+		height: 0.472222rem;
+		position: absolute;
+		top: 40%;
+		right: 0.455556rem;
+	}
 	/*结算板块*/
 	.jiesuan{
 		width: 100%;

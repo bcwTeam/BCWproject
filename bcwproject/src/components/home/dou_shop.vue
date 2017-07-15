@@ -1,5 +1,9 @@
 <template>
 	<div class="dou_main">
+		<!-- 引入轮播图组件 -->
+		<swiper :swiperPic="pic">
+		</swiper>
+
 		<div class="dou_container">
 			<div class="dou_header">
 				<div class="direc">
@@ -7,9 +11,6 @@
 				</div>味豆商城
 			</div>
 			<div class="dou_bottom">
-				<div class="dou_flash" v-for = "item in list">
-					<img :src="item.image_url">
-				</div>
 				<div class="mall_nav">
 					<ul>
 						<li>
@@ -55,11 +56,17 @@
 </template>
 
 <script>
+	// 引入
+	import swiper from './swiper'
+
 	export default{
 		name :'head',
+		components : {
+			swiper
+		},
 		data () {
 			return {
-				list : [],
+				pic : [],
 				items : [],
 				lists : [],
 			}
@@ -67,7 +74,8 @@
 		created(){
 			this.$http.get('../../../static/data/dou_shop_banner.json').then(res=>{
 				// console.log(res.data.result_data.banner_list)
-				this.list = res.data.result_data.banner_list;
+				//pic是轮播图插件的数组，不可更改
+				this.pic = res.data.result_data.banner_list;
 				this.items = res.data.result_data.nav_list;
 			}),
 			this.$http.get('../../../static/data/dou_shop.json').then(res=>{
@@ -78,6 +86,9 @@
 </script>
 
 <style>
+	.dou_container{
+		margin-top: 0;
+	}
 	.dou_header{
 	    border-bottom: 1px solid #ccc;
 	    width: 100%;
@@ -105,7 +116,7 @@
 		height: 0.805556rem;
 	}
 	.dou_bottom{
-	    margin-top: 1.388889rem;
+	    /*margin-top: 1.388889rem;*/
     	background-color: #eee
 	}
 	.dou_flash{

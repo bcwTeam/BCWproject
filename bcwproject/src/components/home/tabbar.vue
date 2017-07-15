@@ -49,6 +49,7 @@
 		bottom:0;
 		left:0;
 		right:0;
+		z-index: 34;
 	}
 	.home_nav .tabbar>li{
 		width:25%;

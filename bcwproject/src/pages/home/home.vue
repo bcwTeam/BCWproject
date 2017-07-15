@@ -2,11 +2,9 @@
 	<div>
 		<home-header :navList = "navList"></home-header>
 		<tab-bar :tabbar = "tabbar"></tab-bar>
-
-		<swiper :swiperPic="pic">
-			
-		</swiper>
-
+		<div class="swiperContainer">
+			<swiper :swiperPic="pic"></swiper>
+		</div>
 
     <!--会员中心，每日签到，豆味商城，包邮专区-->
 		<div class="homeClass">
@@ -133,7 +131,7 @@
 		</div>
 
 
-		<tab-bar></tab-bar>
+		<tab-bar></tab-bar> 
 	</div>
 </template>
 
@@ -161,9 +159,11 @@
 			homeHeader, 
 			tabBar
 		},
+
 		methods : {
 			getSwiperData : function(){
 				this.$http.get('../../../static/data/beCherry/swiper.json').then(res => {
+					console.log(res);
 					// console.log(res.data.result_data.list[0].data_list);
 					this.pic = res.data.result_data.list[0].data_list.slice(0,4);
 				})
@@ -270,13 +270,8 @@
 	#newProductBottom{
 		width:100%;
 		white-space: nowrap;
-<<<<<<< HEAD
 	    overflow-x: auto;
 	    overflow-y: hidden;
-=======
-		overflow-x: auto;
-		overflow-y: hidden
->>>>>>> 1815c4c276869c62fc0a5e37ff26b259b4c62d7c
 	}
 	#newProductBottom div{
 		width:360%;
