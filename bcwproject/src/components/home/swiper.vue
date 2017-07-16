@@ -24,8 +24,12 @@
 	            observeParents:true,
 	            loop : true,
 	            autoplayDisableOnInteraction : false,
-	        }
+	        },
+	        msg : 'aaaa',
 	      }
+	    },
+	    created : function(){
+	    	console.log(this.msg);
 	    }
 	}
 </script>

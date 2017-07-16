@@ -33,11 +33,6 @@
 		//获取下方数据
 		created(){
 			this.$http.get('../../../static/data/class.json').then(res=>{
-
-				// console.log(res.data.result_data.bottom);
-				// this.list = res.data.result_data;
-
-				// console.log(res.data.result_data.bottom);
 				this.list = res.data.result_data.bottom;
 
 			})
