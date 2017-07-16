@@ -35,7 +35,8 @@
 
 		},
 		created : function (){
-			this.id = this.$route.params.id;
+			// 以url中拼参数的方式传递，并以该种方式接收，避免params方式中刷新页面时数据不在
+			this.id = this.$route.query.id;
 			this.getData(); 
 		}
 	}

@@ -9,7 +9,9 @@
 		<div class="daily">
 			<div v-for="i in daily">
 			<!-- <div v-for="i in daily" @click="goto(i.eat_id)"> -->
-				<router-link :to="{name:'Detail',params:{id:i.eat_id}}">
+				<router-link :to="{name:'Detail',query:{id:i.eat_id}}">
+					<!-- 用query传参的好处是刷新页面是页面还在，参数还在 -->
+					
 					<h3>{{i.title}}</h3>
 					<p class="des">{{i.description}}</p>
 					<img v-lazy="i.imageUrl" alt="" class="lazy">

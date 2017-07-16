@@ -16,15 +16,16 @@
 				<div class="goodDesContainer">
 					<p class="goodDes">{{item.goods_title}}</p>
 					<p class="goodPrice">￥{{item.shop_price}}</p>
-					<div @click="addGood(item)">
+					<div @click="addGood(item)" class="fade">
 						<img src="../../../static/images/icon_cart3_white.png" height="72" width="72" alt="">
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- <div class="addedGood">加入购物车成功</div> -->
+		<div class="addedGood">加入购物车成功</div>
 	</div>
 </template>
+<script src="../../../static/jquery-1.11.2.min.js"></script>
 <script>
 	export default {
 		data () {
@@ -50,7 +51,7 @@
 		methods : {
 			// 获取数据
 			getClassifyDataDetail : function(){
-				this.$http.get('../../../static/data/classify_detail/detail'+(this.id || 5)+'.json').then(res=>{
+				this.$http.get('../../../static/data/classify_detail/detail'+(this.id)+'.json').then(res=>{
 					this.classifyDataList = res.data.result_data.list;
 				})
 			},
@@ -66,11 +67,10 @@
 			addGood :function(item){
 				this.$store.dispatch('addGoods',item);
 				//addGoods是store.js中action中的addGoods函数
-
 			},
 		},
 		created () {
-			this.id = this.$route.params.id;
+			this.id = this.$route.query.id;
 			this.titleHead = this.$route.params.title;
 			this.getClassifyDataDetail(); 
 			this.goodsArr = this.$store.getters.getGoodsList;
@@ -90,20 +90,21 @@
 		border-radius: 0.355556rem;
 		color: #fff;
 		font-size: 0.4rem;
-		animation: opacity 1.5s;
+		/*opacity: 0;*/
+		display: none;
 	}
-	@keyframes opacity{
+	@keyframes fade{
 		25%{
-			opacity: 0;
+			opacity: 0.5
 		}
 		50%{
-			opacity: 0.4;
+			opacity: 1
 		}
 		75%{
-			opacity: 0.8;
+			opacity: 0.5
 		}
 		100%{
-			opacity: 1;
+			opacity: 0;
 		}
 	}
 	/*整个详情页*/
