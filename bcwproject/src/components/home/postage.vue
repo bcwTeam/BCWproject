@@ -13,7 +13,7 @@
 							<p class="goods_direction">{{item.goods_subtitle}}</p>
 							<p class="goods_price">￥{{(item.shop_price-0)/100}}&nbsp&nbsp<span>￥{{(item.market_price-0)/100}}</span></p>
 							<div class="cart">
-								<img src="../../../static/imgs/cart-img2.jpg" height="60" width="120">
+								<img src="../../../static/imgs/cart-img2.jpg" @click = "addGood(item)">
 							</div>
 						</li>
 					</ul>
@@ -43,7 +43,16 @@
 			})
 		},
 		methods: {
+			// getClassifyDataDetail : function(){
+			// 	this.$http.get('../../../static/data/classify_detail/detail'+this.id+'.json').then(res=>{
+			// 		this.classifyDataList = res.data.result_data.list;
+			// 	})
+			// },
+			addGood :function(item){
+				console.log(item);
+				this.$store.dispatch('addGoods',item);
 
+			},
 		}
 
 	}
