@@ -11,7 +11,7 @@
 							<img :src="item.goods_img">
 							<p class="goods_name">{{item.goods_name}}</p>
 							<p class="goods_direction">{{item.goods_subtitle}}</p>
-							<p class="goods_price">￥{{(item.shop_price-0)/100}}&nbsp&nbsp<span>￥{{(item.market_price-0)/100}}</span></p>
+							<p class="goods_price">￥{{item.shop_price}}&nbsp&nbsp<span>￥{{item.market_price}}</span></p>
 							<div class="cart">
 								<img src="../../../static/imgs/cart-img2.jpg" @click = "addGood(item)">
 							</div>
