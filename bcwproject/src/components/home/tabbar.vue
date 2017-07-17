@@ -33,7 +33,7 @@
 				//console.log(data)
 				this.currentIndex = index;
 				this.$router.replace({
-					path:data
+					path: data
 				});
 			}
 		}

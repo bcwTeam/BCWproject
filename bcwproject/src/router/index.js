@@ -10,14 +10,14 @@ import Eat from '../pages/eat/eat.vue'
 import Cart from '../pages/cart/cart'
 import Mine from '../pages/mine/mine'
 //home页路由
-import Bogof from '../pages/home/bogof'
-import Candy from '../pages/home/candy'
-import Driedtofu from '../pages/home/driedtofu'
-import Import from '../pages/home/import'
-import Nut from '../pages/home/nut'
-import Recommend from '../pages/home/recommend'
-import Seafood from '../pages/home/seafood'
-import Sweetmeat from '../pages/home/sweetmeat'
+import Bogof from '../components/home/navPages/bogof'
+import Candy from '../components/home/navPages/candy'
+import Driedtofu from '../components/home/navPages/driedtofu'
+import Import from '../components/home/navPages/import'
+import Nut from '../components/home/navPages/nut'
+// import Recommend from '../components/home/navPages/recommend'
+import Seafood from '../components/home/navPages/seafood'
+import Sweetmeat from '../components/home/navPages/sweetmeat'
 
 //eat页路由
 import Choose from '../pages/eat/choose'
@@ -27,6 +27,9 @@ import Knowledge from '../pages/eat/knowledge'
 import Detail from '../components/eat/detail'
 import DetailClassify from '../components/class/detail'
 import Search from '../components/home/search'
+
+import SelectionDetail from '../pages/home/selectionDetail'
+
 
 import Member_center from '../pages/home/member_center'
 import Daily_sign from '../components/home/daily_sign'
@@ -99,12 +102,17 @@ export default new Router({
 			name: 'Postage',
 		 	component: Postage,
 	    },
+	    {
+	        path: '/selectionDetail',
+			name: 'SelectionDetail',
+		 	component: SelectionDetail
+	    },
 	    { path: '/bogof', name: 'bogof', component: Bogof },
  		{ path: '/candy', name: 'candy', component: Candy },
  		{ path: '/driedtofu', name: 'driedtofu', component: Driedtofu },
  		{ path: '/import', name: 'import', component: Import },
  		{ path: '/nut', name: 'nut', component: Nut },
- 		{ path: '/recommend', name: 'recommend', component: Recommend },
+ 		// { path: '/recommend', name: 'recommend', component: Recommend },
  		{ path: '/seafood', name: 'seafood', component: Seafood },
  		{ path: '/sweetmeat', name: 'sweetmeat', component: Sweetmeat },
 

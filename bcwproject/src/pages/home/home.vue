@@ -105,8 +105,8 @@
 		<div class="selectionHeader">
 			<img src="../../../static/data/img/selectionHeader.jpg">
 		</div>
-		<div v-for="(item1,index) in selectionDataBottom.data">
-			<img :src="item1.image_url" class="selectionImage">
+		<div v-for="(item1,index) in selectionDataBottom.data" >
+			<img :src="item1.image_url" class="selectionImage" @click="getIndex(index)">
 		</div>
     <!--每日优选-->
 		<div class="everydaySelection">
@@ -144,6 +144,7 @@
 				everydaySelectionData:[],
 				pic : [],
 				tabbar: [],
+				navList: [],
 				selectionDataBottom:[],
 				newProductData:[],
 				everydaySelectionData:[]
@@ -159,7 +160,6 @@
 		methods : {
 			getSwiperData : function(){
 				this.$http.get('../../../static/data/beCherry/swiper.json').then(res => {
-					console.log(res);
 					// console.log(res.data.result_data.list[0].data_list);
 					this.pic = res.data.result_data.list[0].data_list.slice(0,4);
 				})
@@ -186,10 +186,17 @@
 					$this.everydaySelectionData=JSON.parse(res.request.response).result_data.list;
 
 				})
+			},
+			getIndex:function(index){
+				this.$router.push({name : 'SelectionDetail',params:{data : index}})
+				console.log(123)
 			}
+
 		},
 		created () {
-			
+			this.$http.get('../../../static/data/beCherry/nav.json').then(res=> {
+				this.navList = res.data.result_data.list
+			}),
 			this.getSelectionData();
 			this.getNewProductData();
 			this.getEverydaySelectionData();
@@ -270,6 +277,7 @@
 		width:360%;
 	}
 	#newProductBottom dl{
+		overflow:hidden;
 		width:25%;
 		float:left;
 	}
@@ -283,7 +291,7 @@
 	}
 	#newProductBottom dl dd div:nth-of-type(1){
 		margin-top:25px;
-		font-size:20px;
+		font-size:16px;
 		color:#555;
 		font-weight:bold;
 	}
