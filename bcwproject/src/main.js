@@ -13,7 +13,6 @@ import store from '../src/vuex/store'
 
 
 
-
 Vue.use(VueAwesomeSwiper)
 // Vue.use(jsonp)
 

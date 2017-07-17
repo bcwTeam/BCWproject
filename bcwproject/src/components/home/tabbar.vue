@@ -1,8 +1,8 @@
 <template>
 	<nav class="home_nav">
 		<ul class="tabbar">
-			<li v-for="(item,index) in nav_list" @click="currentIndex = index">
-				<span @click="changePage(item.path)">
+			<li v-for="(item,index) in nav_list" @click="changePage(item.path, index)">
+				<span >
 					<img :src="currentIndex == index ? item.image_url_select : item.image_url" alt="">
 					<span :style="currentIndex == index ? {'color': '#FF4F39'} : {'color': '#9DA1A3'}">{{ item.nav_name }}</span>
 				</span>
@@ -29,11 +29,12 @@
 			})
 		},
 		methods: {
-			changePage (data) {
+			changePage (data, index) {
 				//console.log(data)
+				this.currentIndex = index;
 				this.$router.replace({
 					path:data
-				})
+				});
 			}
 		}
 	}
@@ -50,6 +51,7 @@
 		bottom:0;
 		left:0;
 		right:0;
+		z-index: 34;
 	}
 	.home_nav .tabbar>li{
 		width:25%;

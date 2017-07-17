@@ -1,10 +1,10 @@
 <template> 
 	<div class="detail">
-		<p>{{id}}</p>	
-		<p>{{obj.title}}</p>
+		<!-- <p>{{id}}</p>	 -->
+		<!-- <p>{{obj.title}}</p> -->
 		<img :src="obj.imageUrl" alt="">
-		<p>{{obj.description}}</p>
-		<p>{{obj.comment_count}}</p>
+		<!-- <p>{{obj.description}}</p> -->
+		<!-- <p>{{obj.comment_count}}</p> -->
 		<form action="">
 			<input type="text" placeholder="来说点什么吧">
 			<button>发布</button>
@@ -35,7 +35,8 @@
 
 		},
 		created : function (){
-			this.id = this.$route.params.id;
+			// 以url中拼参数的方式传递，并以该种方式接收，避免params方式中刷新页面时数据不在
+			this.id = this.$route.query.id;
 			this.getData(); 
 		}
 	}
@@ -61,18 +62,18 @@
 		align-items: center;
 	}
 	form input{
-		height: 1rem;
-		width: 8.3rem;
+		height: .8rem;
+		width: 6.3rem;
 		vertical-align: top;
 		border: none;
 		background-color: #E5E5E5;
 		border-radius: 0.277778rem;
-		font-size: 0.833333rem;
+		font-size: 0.533333rem;
 		text-indent: 0.138889rem;
 		outline: none;
 	}
 	form button{
-		height: 1rem;
+		height: .8rem;
 		width: 1.3rem;
 		vertical-align: top;
 		border: none;

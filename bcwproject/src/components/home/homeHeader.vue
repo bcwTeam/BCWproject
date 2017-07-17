@@ -34,6 +34,9 @@
 		methods: {
 			changePage (item, index) {
 				this.currentIndex = index;
+				this.$router.replace({
+					path: item
+				})
 				// this.$http.get('../../../static/data/beCherry/'+item+'.json')
 			},
 			gosearch () {

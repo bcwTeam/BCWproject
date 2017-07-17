@@ -1,51 +1,53 @@
 <template>
 	<div>
 		<home-header></home-header>
-		<tab-bar :tabbar = "tabbar"></tab-bar>
-
-		<swiper :swiperPic="pic">
-			
-		</swiper>
-
+		<div class="swiperContainer">
+			<swiper :swiperPic="pic"></swiper>
+		</div>
 
     <!--会员中心，每日签到，豆味商城，包邮专区-->
 		<div class="homeClass">
 			<dl>
+				<!-- 会员中心跳转页面 -->
+				<router-link :to="{name:'Member_center',params:{title:'会员中心'}}">
 				<dt>
 					<img src="../../../static/data/img/vipCenter.jpg">
 				</dt>
-				<!-- 会员中心跳转页面 -->
-				<router-link :to="{name:'Member_center',params:{title:'会员中心'}}">
 					<dd>
 						会员中心
 					</dd>
 				</router-link>
 			</dl>
 			<dl>
+				<router-link :to="{name:'Daily_sign',params:{title:'每日签到'}}">
 				<dt>
 					<img src="../../../static/data/img/everydaySign.jpg">
 				</dt>
-				<router-link :to="{name:'Daily_sign',params:{title:'每日签到'}}">
 				<dd>
 					每日签到
 				</dd>
 				</router-link>
 			</dl>
 			<dl>
+				<router-link :to="{name:'Dou_shop',params:{title:'味豆商城'}}">
 				<dt>
 					<img src="../../../static/data/img/beanShop.jpg">
 				</dt>
 				<dd>
-					豆味商城
+					味豆商城
 				</dd>
+				</router-link>
 			</dl>
 			<dl>
+				<router-link :to="{name:'Postage',params:{title:'包邮专区'}}">
+				<dt>
 				<dt>
 					<img src="../../../static/data/img/freePost.jpg">
 				</dt>
 				<dd>
 					包邮专区
 				</dd>
+				</router-link>
 			</dl>
 		</div>
     <!--限时秒杀-->
@@ -126,6 +128,7 @@
 				</dd>
 			</dl>
 		</div>
+		<tab-bar></tab-bar> 
 	</div>
 </template>
 
@@ -152,9 +155,11 @@
 			homeHeader, 
 			tabBar
 		},
+
 		methods : {
 			getSwiperData : function(){
 				this.$http.get('../../../static/data/beCherry/swiper.json').then(res => {
+					console.log(res);
 					// console.log(res.data.result_data.list[0].data_list);
 					this.pic = res.data.result_data.list[0].data_list.slice(0,4);
 				})
@@ -258,13 +263,8 @@
 	#newProductBottom{
 		width:100%;
 		white-space: nowrap;
-<<<<<<< HEAD
 	    overflow-x: auto;
 	    overflow-y: hidden;
-=======
-		overflow-x: auto;
-		overflow-y: hidden
->>>>>>> 1815c4c276869c62fc0a5e37ff26b259b4c62d7c
 	}
 	#newProductBottom div{
 		width:360%;

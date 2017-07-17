@@ -6,21 +6,26 @@
 		</ul>
 		<div class="goodsContainer">
 			<router-link :to="{name:'cart'}">
-				<div class="gotoCart"></div>
+				<div class="gotoCart">
+					<img src="../../../static/images/huicart.png" height="22" width="23" alt="">
+					<div v-show="goodsArr.length>0">{{getNumber}}</div>
+				</div>
 			</router-link>
 			<div v-for="item in classifyDataList" class="good">
 				<img :src="item.goods_icon" alt="">
 				<div class="goodDesContainer">
 					<p class="goodDes">{{item.goods_title}}</p>
 					<p class="goodPrice">￥{{item.shop_price}}</p>
-					<div @click="addGood(item)">
+					<div @click="addGood(item)" class="fade">
 						<img src="../../../static/images/icon_cart3_white.png" height="72" width="72" alt="">
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="addedGood">加入购物车成功</div>
 	</div>
 </template>
+<script src="../../../static/jquery-1.11.2.min.js"></script>
 <script>
 	export default {
 		data () {
@@ -30,12 +35,23 @@
 				navList : [{title : '销量'},{title : '新品'},{title : '价格'}],
 				currentIndex : 0,
 				titleHead : '',
+				goodsArr : [],
+				number : 0
+			} 
+		},
+		computed : {
+			getNumber : function(){
+				var number = 0;
+				this.$store.getters.getGoodsList.forEach(i=>{
+					number += i.num;
+				})
+				return number;
 			}
 		},
 		methods : {
 			// 获取数据
 			getClassifyDataDetail : function(){
-				this.$http.get('../../../static/data/classify_detail/detail'+this.id+'.json').then(res=>{
+				this.$http.get('../../../static/data/classify_detail/detail'+(this.id)+'.json').then(res=>{
 					this.classifyDataList = res.data.result_data.list;
 				})
 			},
@@ -49,19 +65,48 @@
 			},
 			// 添加商品
 			addGood :function(item){
-				console.log(item);
 				this.$store.dispatch('addGoods',item);
-
+				//addGoods是store.js中action中的addGoods函数
 			},
 		},
 		created () {
-			this.id = this.$route.params.id;
+			this.id = this.$route.query.id;
 			this.titleHead = this.$route.params.title;
 			this.getClassifyDataDetail(); 
-		}
+			this.goodsArr = this.$store.getters.getGoodsList;
+		},
 	}
 </script>
 <style>
+	/*加入购物车成功*/
+	.addedGood{
+		width: 3.777778rem;
+		line-height: 1.666667rem;
+		position: fixed;
+		top: 45%;
+		left: 32%;
+		background-color: #999;
+		text-align: center;
+		border-radius: 0.355556rem;
+		color: #fff;
+		font-size: 0.4rem;
+		/*opacity: 0;*/
+		display: none;
+	}
+	@keyframes fade{
+		25%{
+			opacity: 0.5
+		}
+		50%{
+			opacity: 1
+		}
+		75%{
+			opacity: 0.5
+		}
+		100%{
+			opacity: 0;
+		}
+	}
 	/*整个详情页*/
 	.classDetailPage{
 		background-color: #EDEDED;
@@ -169,11 +214,29 @@
 		width: 1.666667rem;
 		height: 1.666667rem;
 		position: fixed;
-		bottom: 10px;
+		bottom: 0.833333rem;
 		right: 15px;
 		border: 1px solid #E3E3E3;
 		border-radius: 50%;
 		background-color: #fff;
 		z-index: 34;
+	}
+	.gotoCart>img{
+		position: absolute;
+		top: 30%;
+		left: 30%;
+	}
+	.gotoCart>div{
+		width: 0.555556rem;
+		height: 0.555556rem;
+		text-align: center;
+		line-height: 0.555556rem;
+		background-color: #FF4348;
+		border-radius: 50%;
+		position: absolute;
+		z-index: 23;
+		color: #fff;
+		left: 55%;
+		top: 10%;
 	}
 </style>

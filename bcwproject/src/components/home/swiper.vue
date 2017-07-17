@@ -1,4 +1,4 @@
-<template>
+<template> 
 	<div class="swiperContainer">
 	   <swiper :options="swiperOption">
 		    <swiper-slide v-for="slide,index in swiperPic" class="pic" :key='index'>
@@ -16,7 +16,7 @@
 		data() {
 	      return {
 	        swiperOption: {
-		        autoplay: 1500,
+		        autoplay: 2500,
 		        setWrapperSize :true,
 		        pagination : '.swiper-pagination',
 		        paginationClickable :true,
@@ -24,14 +24,18 @@
 	            observeParents:true,
 	            loop : true,
 	            autoplayDisableOnInteraction : false,
-	        }
+	        },
+	        msg : 'aaaa',
 	      }
 	    },
+	    created : function(){
+	    	console.log(this.msg);
+	    }
 	}
 </script>
 <style>
 	.swiperContainer{
-		margin-top: 2.16rem;
+		margin-top: 1.16rem;
 		border: 0.027778rem solid #fff;
 	}
 	.pic{

@@ -44,7 +44,7 @@
 				// console.log(type.cat_name);
 				this.$router.push({
 					name : 'DetailClassify',
-					params:{
+					query:{
 						id : type.cat_id,
 						title : type.cat_name,
 					},

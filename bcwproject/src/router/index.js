@@ -30,7 +30,8 @@ import Search from '../components/home/search'
 
 import Member_center from '../pages/home/member_center'
 import Daily_sign from '../components/home/daily_sign'
-
+import Dou_shop from '../components/home/dou_shop'
+import Postage from '../components/home/postage'
 export default new Router({
 	routes: [
 		{
@@ -41,17 +42,7 @@ export default new Router({
     	{
 			path: '/home',
 			name: 'home',
-		 	component: Home,
-		 	children: [
-		 		{ path: '/', name: 'bogof', component: Bogof },
-		 		{ path: '/candy', name: 'candy', component: Candy },
-		 		{ path: '/driedtofu', name: 'driedtofu', component: Driedtofu },
-		 		{ path: '/import', name: 'import', component: Import },
-		 		{ path: '/nut', name: 'nut', component: Nut },
-		 		{ path: '/recommend', name: 'recommend', component: Recommend },
-		 		{ path: '/seafood', name: 'seafood', component: Seafood },
-		 		{ path: '/sweetmeat', name: 'sweetmeat', component: Sweetmeat },
-		 	]
+		 	component: Home
 		},
 		{
 			path: '/class',
@@ -88,15 +79,34 @@ export default new Router({
 			name: 'Daily_sign',
 		 	component: Daily_sign,
 		},
-	    {   
-	    	path: '/detailclassify',
-			name: 'DetailClassify',
-		 	component: DetailClassify,
-	    },
 	    { 
 	    	path: '/search', 
 	    	name: 'searct', 
 	    	component: Search 
+		 },
+		 {
+	        path: '/detailclassify',
+			name: 'DetailClassify',
+		 	component: DetailClassify,
 	    },
+	     {
+	        path: '/dou_shop',
+			name: 'Dou_shop',
+		 	component: Dou_shop,
+	    },
+	    { 
+	        path: '/postage',
+			name: 'Postage',
+		 	component: Postage,
+	    },
+	    { path: '/bogof', name: 'bogof', component: Bogof },
+ 		{ path: '/candy', name: 'candy', component: Candy },
+ 		{ path: '/driedtofu', name: 'driedtofu', component: Driedtofu },
+ 		{ path: '/import', name: 'import', component: Import },
+ 		{ path: '/nut', name: 'nut', component: Nut },
+ 		{ path: '/recommend', name: 'recommend', component: Recommend },
+ 		{ path: '/seafood', name: 'seafood', component: Seafood },
+ 		{ path: '/sweetmeat', name: 'sweetmeat', component: Sweetmeat },
+
 	]
 })
