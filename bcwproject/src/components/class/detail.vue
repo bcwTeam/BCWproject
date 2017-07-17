@@ -70,7 +70,7 @@
 			},
 		},
 		created () {
-			this.id = this.$route.params.id;
+			this.id = this.$route.query.id;
 			this.titleHead = this.$route.params.title;
 			this.getClassifyDataDetail(); 
 			this.goodsArr = this.$store.getters.getGoodsList;
