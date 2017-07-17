@@ -12,8 +12,8 @@
 					{{ item.word }}
 				</li>
 			</ul>
-		</div>
-	</div>
+		</div>	</div>
+
 </template>
 	
 <script>
@@ -68,9 +68,6 @@
 		background-size: 10%;
 		text-indent: 11%;
 		outline: none;
-	}
-	.search .search_header{
-
 	}
 	.search .search_content{
 		clear: both;

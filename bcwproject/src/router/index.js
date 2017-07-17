@@ -79,7 +79,6 @@ export default new Router({
 		 	component: Detail,
 	    },
 	    {
-<<<<<<< HEAD
 	        path: '/member_center',
 			name: 'Member_center',
 		 	component: Member_center,
@@ -88,11 +87,11 @@ export default new Router({
 	        path: '/daily_sign',
 			name: 'Daily_sign',
 		 	component: Daily_sign,
-=======
-	        path: '/detailclassify',
+		},
+	    {   
+	    	path: '/detailclassify',
 			name: 'DetailClassify',
 		 	component: DetailClassify,
->>>>>>> 1815c4c276869c62fc0a5e37ff26b259b4c62d7c
 	    },
 	    { 
 	    	path: '/search', 
